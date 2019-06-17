@@ -21,15 +21,22 @@ make build-linux
 
 ### Add the builds to alliases
 echo alias spend=$(pwd)/build/./spend >> ~/.bash_aliases
+
 echo alias spendcli=$(pwd)/build/./spendcli >> ~/.bash_aliases
 
 ## Usage 
 
 Use spend start to start the daemon (Run spend --help to list all comands)
 
+spend start
+
+Copy the genesis to your config folder
+There is a spendcli and spend daemon configuration folders located at ./spend 
+
+cp genesis/genesis.json ~/.spend/config
+
 Use spendcli to interact with the blockchain
 
-There is a spendcli and spend daemon configuration folders located at ./sepnd 
 ## Disambiguation
 
 This Cosmos-SDK project is not related to the [React-Cosmos](https://github.com/react-cosmos/react-cosmos) project (yet). Many thanks to Evan Coury and Ovidiu (@skidding) for this Github organization name. As per our agreement, this disambiguation notice will stay here.
