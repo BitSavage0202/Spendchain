@@ -50,6 +50,7 @@ func main() {
 
 	// Bech32PrefixAccAddr defines the Bech32 prefix of an account's address
 	Bech32MainPrefix := "spend"
+
 	Bech32PrefixAccAddr := "spend"
 	// Bech32PrefixAccPub defines the Bech32 prefix of an account's public key
 	Bech32PrefixAccPub := Bech32MainPrefix + PrefixPublic
