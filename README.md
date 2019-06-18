@@ -1,5 +1,3 @@
-# Cosmos Hub
-
 This repository hosts `Spend Testnet`, an implementation of the Cosmos Hub.
 
 **Note**: Requires [Go 1.12+](https://golang.org/dl/)
