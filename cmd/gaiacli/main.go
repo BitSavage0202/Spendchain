@@ -33,11 +33,41 @@ func main() {
 	// Instantiate the codec for the command line application
 	cdc := app.MakeCodec()
 
+
+//	PrefixAccount := "acc"
+
+	// PrefixValidator is the prefix for validator keys
+	PrefixValidator := "val"
+	// PrefixConsensus is the prefix for consensus keys
+	PrefixConsensus := "cons"
+	// PrefixPublic is the prefix for public keys
+	PrefixPublic := "pub"
+	// PrefixOperator is the prefix for operator keys
+	PrefixOperator := "oper"
+
+	// PrefixAddress is the prefix for addresses
+//	PrefixAddress := "addr"
+
+	// Bech32PrefixAccAddr defines the Bech32 prefix of an account's address
+	Bech32MainPrefix := "spend"
+	Bech32PrefixAccAddr := "spend"
+	// Bech32PrefixAccPub defines the Bech32 prefix of an account's public key
+	Bech32PrefixAccPub := Bech32MainPrefix + PrefixPublic
+	// Bech32PrefixValAddr defines the Bech32 prefix of a validator's operator address
+	Bech32PrefixValAddr := Bech32MainPrefix + PrefixValidator + PrefixOperator
+	// Bech32PrefixValPub defines the Bech32 prefix of a validator's operator public key
+	Bech32PrefixValPub := Bech32MainPrefix + PrefixValidator + PrefixOperator + PrefixPublic
+	// Bech32PrefixConsAddr defines the Bech32 prefix of a consensus node address
+	Bech32PrefixConsAddr := Bech32MainPrefix + PrefixValidator + PrefixConsensus
+	// Bech32PrefixConsPub defines the Bech32 prefix of a consensus node public key
+	Bech32PrefixConsPub := Bech32MainPrefix + PrefixValidator + PrefixConsensus + PrefixPublic
+
+
 	// Read in the configuration file for the sdk
 	config := sdk.GetConfig()
-	config.SetBech32PrefixForAccount(sdk.Bech32PrefixAccAddr, sdk.Bech32PrefixAccPub)
-	config.SetBech32PrefixForValidator(sdk.Bech32PrefixValAddr, sdk.Bech32PrefixValPub)
-	config.SetBech32PrefixForConsensusNode(sdk.Bech32PrefixConsAddr, sdk.Bech32PrefixConsPub)
+	config.SetBech32PrefixForAccount(Bech32PrefixAccAddr, Bech32PrefixAccPub)
+	config.SetBech32PrefixForValidator(Bech32PrefixValAddr, Bech32PrefixValPub)
+	config.SetBech32PrefixForConsensusNode(Bech32PrefixConsAddr, Bech32PrefixConsPub)
 	config.Seal()
 
 	// TODO: setup keybase, viper object, etc. to be passed into
